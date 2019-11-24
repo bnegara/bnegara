@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<div class="signInTopNav">
+    <a href="{{url_for('main.index')}}"><img src="../static/images/transparentBankLogo.png" alt=""></a>
+</div>
+
+    {%with messages = get_flashed_messages()%}
+    {%for message in messages%}
+    {%if message%}
+    <div class="container-fluid bg-info" style="padding: 10px">
+        <span style="color: white;">{{message}}</span>
+    </div>
+    {%endif%}
+    {%endfor%}
+    {%endwith%}
+<div class="signUpForm">
+    {%if form.errors%}
+    <div class="error text-danger" style="background: rgb(252, 176, 176); border-radius: 5px; padding: 2px; margin-bottom: 20px;">
+        {%for error in form.username.errors%}
+        <ul>
+            <li>{{error}}</li>
+            
+        </ul>
+        {%endfor%}
+        
+        {%for error in form.password.errors%}
+        <ul>
+            <li>{{error}}</li>
+            
+        </ul>
+        {%endfor%}
+    </div>
+    {%endif%}
+    <form action="" method="POST">
+        {{form.csrf_token}}
+        <div class="form-group">
+            {{form.username.label}}
+            {{form.username(class='form-control', placeholder='Username')}}
+        </div>
+
+        <div class="form-group">
+            {{form.password.label}}
+            {{form.password(class='form-control', placeholder='Password')}}
+        </div>
+        <a href=""><small style="float:right">Forget password?</small></a>
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey='edeacda59ac156398eb419c6b1ba496a5b8d0250cbf6f09299'></div>
+        </div>
+        <input style="width: 100%; margin: 10px 0;" class="btn btn-primary" type="submit" value="Sign me Up">
+        <p>Dont have an account? <a href="{{url_for('users.signup')}}">Sign up here</a></p>
+    </form>
+</div>
+
+
+
+{%endblock%}

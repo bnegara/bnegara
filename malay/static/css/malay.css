@@ -1,0 +1,231 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Geneva, Verdana, sans-serif;
+    background: rgb(235, 233, 233);
+    overflow-x: hidden;
+}
+
+#landingPhotoContainer{
+    background-image: url('../images/malaysia4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+}
+
+figure{
+    background: rgba(0, 0, 0, 0.7);
+    height: 500px;
+}
+
+.bankLogo{
+    position: absolute;
+    top: 6px;
+    left: 45vw;
+}
+
+.infoButton{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+.btn-outline-primary{
+    border-color: white;
+    border-radius: 500px;
+    color: white;
+}
+
+.topSignInButton{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
+
+.text-wrapper{
+    height: 300px;
+    position: relative;
+    margin-top: -350px;
+    text-align: center;
+}
+
+.text-wrapper h1{
+    color: white;
+}
+
+.text-wrapper{
+    color: white;
+}
+
+.content{
+    margin-top: 20px;
+    text-align: center;
+    font: 100%;
+    width: auto;
+}
+
+.cardContent{
+    width: 80%;
+    margin: 10px auto;
+}
+
+.contentRow .card{
+    margin-bottom: 20px;
+}
+
+.middleInfo{
+    background: rgb(46, 46, 245);
+    background: linear-gradient(rgb(46, 46, 245),rgb(106, 106, 248));
+    width: 100%;
+    flex-wrap: wrap;
+    color: white;
+    padding: 30px;
+}
+
+.middleInfoItemContainer{
+    display: flex;
+}
+
+.middleInfoItem{
+    width: 400px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.footer{
+    background: white;
+}
+
+.wordinFooter{
+    color: rgb(77, 73, 73);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.signInTopNav{
+    width: 100%;
+    height: 60px;
+    background: white;
+}
+
+.signInTopNav img{
+    height: 100%;
+    padding: 10px;
+}
+
+.signUpForm{
+    margin: 30px auto;
+    width: 50%;
+    background: white;
+    padding: 20px;
+}
+
+.accountDashBoard{
+    width: 100%;
+    background: linear-gradient(blue,rgb(105, 105, 245));
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+.dashBoard{
+    color: white;
+    display: flex;
+    padding: 40px;
+    margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+    background: linear-gradient(rgb(18, 18, 85) 90%,rgb(105, 105, 245));
+    justify-content: space-between;
+}
+
+.dashBoard-item{
+    padding: 10px;
+}
+
+.logo{
+    padding: 5px;
+    height: 50px;
+    width: 180px;
+    margin-top: -15px;
+}
+
+.errorLogo{
+    width: 80px;
+    height: 80px;
+}
+
+table{
+    width: 100%;
+}
+
+table tr:nth-child(even){
+    background-color: rgb(253, 167, 196);
+    
+}
+
+td{
+    padding: 10px;
+}
+
+table, td{
+    border: 1px solid rgb(197, 193, 193);
+    border-collapse: collapse;
+}
+
+#transaction td{
+    border: 1px solid rgb(197, 193, 193);
+    border-collapse: collapse;
+    width: 25%;
+}
+
+/*******************EFFECTS FOR BIG SCREEN ONLY*************************/
+@media only screen and (min-width:650px){
+    .text-wrapper .btn-primary{
+        width: 80%;
+        margin: 20px 0;
+    }
+    .show{
+        position: absolute;
+        top: 25%;
+        left: 25%;
+    }  
+}
+
+/*******************EFFECTS FOR SMALL SCREEN ONLY*************************/
+@media only screen and (max-width:650px){
+    .text-wrapper{
+        height: 300px;
+        position: relative;
+        margin-top: -380px;
+        text-align: center;
+    }
+    .text-wrapper .btn-primary{
+        width: 80%;
+        margin: 10px 0;
+    }
+    .signUpForm{
+        margin: 30px auto;
+        width: 95%;
+        background: white;
+        padding: 20px;
+    }
+    .dashBoard{
+        padding: 10px;
+        width: 100%;
+    }
+    .dashBoard-item{
+        width: 100%;
+    } 
+    .show{
+        position: absolute;
+        top: 15px;
+        left: 8.5px;
+    }  
+}

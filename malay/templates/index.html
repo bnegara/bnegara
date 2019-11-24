@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/malay.css">
+</head>
+
+<body>
+    <div id="landingPhotoContainer">
+        <div class="infoButton btn btn-outline-primary">
+            Menu
+        </div>
+
+        <div class="bankLogo">
+            <img src="../static/images/transparentLogo.png" height="60px" alt="">
+        </div>
+        
+        {%if current_user.is_authenticated%}
+        <div class="topSignInButton btn btn-danger">
+            <a href="{{url_for('users.logout')}}" style="color:white">Logout</a> 
+        </div>
+        {%else%}
+        <div class="topSignInButton btn btn-outline-primary">
+            <a href="{{url_for('users.signin')}}" style="color:white">Login</a> 
+        </div>
+        {%endif%}
+        
+
+        <figure>
+        </figure>
+
+        <div class="text-wrapper">
+            <h1>Welcome to BNM International Portal</h1>
+            <p>The Simpler, safer way to Pay and Receive money online</p>
+            <a class="btn btn-primary" href="{{url_for('users.signup')}}">Sign Up For Free</a>
+            <p style="margin-top: 8px;">Own a business?<a href="">Open a Business account</a></p>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <p>BNM International Portal is for everyone who Pays and Receive money online</p>
+    </div>
+
+    <div class="container content">
+        <div class="cardContent">
+            <div class="contentRow">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Step 1
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Sign Up for Free</h5>
+                        <p class="card-text">Sign Up with just your email Address and Password</p>
+                        <a href="{{url_for('users.signup')}}" class="btn btn-primary">Sign Up here</a>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        Step 2
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">View Balance</h5>
+                        <p class="card-text">Track your account balance, pending balance, balance on hold 
+                            and your recent transactions
+                        </p>
+                            <a href="{{url_for('accounts.account_view')}}" class="btn btn-primary">View account</a>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        Step 3
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Wait For An Alert</h5>
+                        <p class="card-text">Your money will be credited to your account within 10 minutes</p>
+                        <a href="{{url_for('accounts.withdrawal')}}" class="btn btn-primary">Withdraw Funds</a>
+                    </div>
+                    <div class="card-footer text-muted">Remember to read our <a href="">withdrawal terms and
+                            condition</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="middleInfo">
+        <h2 style="text-align: center; margin-bottom: 70px;">Benefits of Using The Bank Negara International Portal</h2>
+        <div class="middleInfoItemContainer">
+            <div class="middleInfoItem">
+                <h3>Protected and Very Safe Transaction</h3>
+                <p>Shop with peace of mind.
+                    We don’t share your full financial information with sellers.
+                    And PayPal Buyer Protection covers your eligible purchases if they
+                    don’t show up or match their description.</p>
+            </div>
+
+            <div class="middleInfoItem">
+                <h3>Protected and Very Safe Transaction</h3>
+                <p>Shop with peace of mind.
+                    We don’t share your full financial information with sellers.
+                    And PayPal Buyer Protection covers your eligible purchases if they
+                    don’t show up or match their description.</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="jumbotron" style="text-align: center;">
+        <h2>Signup For free</h2>
+        <a class="btn btn-primary" style="width:70%;" href="{{url_for('users.signup')}}">Get Started</a>
+    </div>
+
+    <div class="footer">
+        <div class="wordinFooter">
+            <p>Home</p>
+            <p>Contact Us</p>
+            <p>About Us</p>
+            <p>Fees</p>
+        </div>
+        <p style="font-size: 85%; padding: 20px;">Consumer advisory - PayPal Pte. Ltd., the holder of PayPal's stored
+            value facility,
+            does not require the approval of the Monetary Authority of Singapore. Users are advised
+            to read the terms and conditions carefully.</p>
+    </div>
+
+    <p>Pending Transactions</p>
+</body>
+
+</html>

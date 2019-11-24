@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<div class="signInTopNav">
+    <a class="btn btn-primary ml-2" href="{{url_for('accounts.account_view')}}">Go Back</a>
+    <a href="{{url_for('main.index')}}"><img src="../static/images/transparentBankLogo.png" alt=""></a>
+</div>
+
+<div class="signUpForm">
+        
+<form action="" method="POST">
+    {{form.csrf_token}}
+    <div class="form-group">
+        {{form.from_account.label}}
+        {{form.from_account(class='form-control', placeholder='9027162563545',disabled=True)}}
+        <small style="color: grey;"><i>Balance: Rm{{current_user.accountBalance}}</i></small>
+    </div>
+
+    <div class="form-group">
+        {{form.bank_name.label}}
+        {{form.bank_name(class='form-control', placeholder='Bank Name')}}
+        {%for error in form.bank_name.errors%}
+        <ul class="text-danger">
+            <li>{{error}}</li>
+
+        </ul>
+        {%endfor%}
+    </div>
+
+    <div class="form-group">
+        {{form.account_name.label}}
+        {{form.account_name(class='form-control', placeholder='Transfer Account Name')}}
+        {%for error in form.account_name.errors%}
+        <ul class="text-danger">
+            <li>{{error}}</li>
+
+        </ul>
+        {%endfor%}
+    </div>
+
+    <div class="form-group">
+        {{form.to_account.label}}
+        {{form.to_account(class='form-control', placeholder='Account Number')}}
+        {%for error in form.to_account.errors%}
+        <ul class="text-danger">
+            <li>{{error}}</li>
+
+        </ul>
+        {%endfor%}
+    </div>
+
+    <div class="form-group">
+        {{form.amount.label}}
+        {{form.amount(class='form-control', placeholder='Enter amount to transfer')}}
+        {%for error in form.amount.errors%}
+        <ul class="text-danger">
+            <li>{{error}}</li>
+
+        </ul>
+        {%endfor%}
+    </div>
+
+    <input style="width: 100%; margin: 10px 0;" class="btn btn-primary" type="submit" value="Withdraw">
+
+    
+</div>
+</form>
+</div>
+
+
+{%endblock%}

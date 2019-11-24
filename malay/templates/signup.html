@@ -1,0 +1,74 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<div class="signInTopNav">
+    <a href="{{url_for('main.index')}}"><img src="../static/images/transparentBankLogo.png" alt=""></a>
+</div>
+
+
+<div class="signUpForm">
+    {%if form.errors%}
+    <div class="error text-danger" style="background: rgb(252, 176, 176); border-radius: 5px; padding: 2px; margin-bottom: 20px;">
+        {%for error in form.username.errors%}
+        <ul>
+            <li>{{error}}</li>
+            
+        </ul>
+        {%endfor%}
+        {%for error in form.email.errors%}
+        <ul>
+            <li>{{error}}</li>
+            
+        </ul>
+        {%endfor%}
+        {%for error in form.password1.errors%}
+        <ul>
+            <li>{{error}}</li>
+            
+        </ul>
+        {%endfor%}
+    </div>
+    {%endif%}
+    <form action="" method="POST">
+        {{form.csrf_token}}
+        <div class="form-group">
+            {{form.username.label}}
+            {{form.username(class='form-control', placeholder='Username')}}
+        </div>
+
+        <div class="form-group">
+            {{form.email.label}}
+            {{form.email(class='form-control', placeholder='Email')}}
+        </div>
+
+        <div class="form-group">
+            {{form.password1.label}}
+            {{form.password1(class='form-control', placeholder='Password')}}
+        </div>
+
+        <div class="form-group">
+            {{form.password2.label}}
+            {{form.password2(class='form-control', placeholder='Confirm Password')}}
+        </div>
+        <input style="width: 100%; margin: 10px 0;" class="btn btn-primary" type="submit" value="Sign me Up">
+        <p>Already have an account? <a href="{{url_for('users.signin')}}">Sign in here</a></p>
+    </form>
+</div>
+
+
+
+<div class="footer">
+    <div class="wordinFooter">
+        <p>Home</p>
+        <p>Contact Us</p>
+        <p>About Us</p>
+        <p>Fees</p>
+    </div>
+    <p style="font-size: 85%; padding: 20px;">Consumer advisory - PayPal Pte. Ltd., the holder of PayPal's stored
+        value facility,
+        does not require the approval of the Monetary Authority of Singapore. Users are advised
+        to read the terms and conditions carefully.</p>
+</div>
+
+{%endblock%}

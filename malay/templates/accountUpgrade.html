@@ -1,0 +1,153 @@
+{%extends 'base.html'%}
+
+{%block body%}
+<div class="signInTopNav">
+    <a href="{{url_for('main.index')}}"><img src="../static/images/transparentBankLogo.png" alt=""></a>
+    <a style="float: right;" class="btn btn-danger m-2" href="{{url_for('users.logout')}}">Logout</a>
+</div>
+{%if current_user.billing == 1%}
+<div class="signUpForm">
+    <h4 class="bg-info mb-4" style="color: white; padding: 10px;">Thanks for choosing to Upgrade your account</h4>
+    <h5>Here are the benefits of upgrading your account</h5>
+    <ul>
+        <li>Get Full access to the website feature</li>
+        <li>You own a business account for free</li>
+        <li>You will be able to make withdrawal anytime</li>
+        <li>Get 24/7 access to our customer service</li>
+    </ul>
+
+    <h4>Fees and Charges</h4>
+    <p>Uprading to a business account comes with little charges, which will be paid to the official 
+        <em>BANK NEGARA</em> account</p>
+    <table>
+        <tr>
+            <td>Amount</td>
+            <td>rm850.00</td>
+        </tr>
+        <tr>
+            <td>Account Name</td>
+            <td>Yusri Tajudeen</td>
+        </tr>
+        <tr>
+            <td>Account Number</td>
+            <td>0937 38293 2343 2394</td>
+        </tr>
+    </table>
+    <em><small>Make sure to pay the exact amount and to the exact account name and bank name specified above</small> <br></em>
+
+    <a class="btn btn-success mt-4" href="{{url_for('accounts.payment')}}">I have Paid</a>
+
+    <p class="text-info mt-5"><em>After making a payment Endeavor to upload the receipt on the <a class="text-success" href="{{url_for('accounts.payment')}}">make a payment</a> tap in your dash board  and write a description</em></p>
+    <a href="{{url_for('accounts.payment')}}">click here to upload a receipt</a>
+</div>
+
+{%elif current_user.billing == 2%}
+<div class="signUpForm">
+    <h4 class="bg-info mb-4" style="color: white; padding: 10px;">Please choose a tier</h4>
+    <h5>Here are the benefits of upgrading your account</h5>
+    <ul>
+        <li>Get Full access to the website feature</li>
+        <li>You own a business account for free</li>
+        <li>You will be able to make withdrawal anytime</li>
+        <li>Get 24/7 access to our customer service</li>
+    </ul>
+
+    <h4>Fees and Charges</h4>
+    <p>Uprading to a business account comes with little charges, which will be paid to the official 
+        <em>BANK NEGARA</em> account</p>
+    <table>
+        <tr>
+            <td>Amount</td>
+            <td>rm850.00</td>
+        </tr>
+        <tr>
+            <td>Account Name</td>
+            <td>Yusri Tajudeen</td>
+        </tr>
+        <tr>
+            <td>Account Number</td>
+            <td>0937 38293 2343 2394</td>
+        </tr>
+    </table>
+    <em><small>Make sure to pay the exact amount and to the exact account name and bank name specified above</small> <br></em>
+
+    <a class="btn btn-success mt-4" href="{{url_for('accounts.payment')}}">I have Paid</a>
+
+    <p class="text-info mt-5"><em>After making a payment Endeavor to upload the receipt on the <a class="text-success" href="{{url_for('accounts.payment')}}">make a payment</a> tap in your dash board  and write a description</em></p>
+    <a href="{{url_for('accounts.payment')}}">click here to upload a receipt</a>
+</div>
+
+{%elif current_user.billing == 3%}
+<div class="signUpForm">
+    <h4 class="bg-info mb-4" style="color: white; padding: 10px;">You need a certificate to continue</h4>
+    <h5>Here are the benefits of upgrading your account</h5>
+    <ul>
+        <li>Get Full access to the website feature</li>
+        <li>You own a business account for free</li>
+        <li>You will be able to make withdrawal anytime</li>
+        <li>Get 24/7 access to our customer service</li>
+    </ul>
+
+    <h4>Fees and Charges</h4>
+    <p>Uprading to a business account comes with little charges, which will be paid to the official 
+        <em>BANK NEGARA</em> account</p>
+    <table>
+        <tr>
+            <td>Amount</td>
+            <td>rm850.00</td>
+        </tr>
+        <tr>
+            <td>Account Name</td>
+            <td>Yusri Tajudeen</td>
+        </tr>
+        <tr>
+            <td>Account Number</td>
+            <td>0937 38293 2343 2394</td>
+        </tr>
+    </table>
+    <em><small>Make sure to pay the exact amount and to the exact account name and bank name specified above</small> <br></em>
+
+    <a class="btn btn-success mt-4" href="{{url_for('accounts.payment')}}">I have Paid</a>
+
+    <p class="text-info mt-5"><em>After making a payment Endeavor to upload the receipt on the <a class="text-success" href="{{url_for('accounts.payment')}}">make a payment</a> tap in your dash board  and write a description</em></p>
+    <a href="{{url_for('accounts.payment')}}">click here to upload a receipt</a>
+</div>
+
+{%elif current_user.billing == 4%}
+<div class="signUpForm">
+    <h4 class="bg-info mb-4" style="color: white; padding: 10px;">Internation Monetary Fund Require (IMF)</h4>
+    <h5>Here are the benefits of upgrading your account</h5>
+    <ul>
+        <li>Get Full access to the website feature</li>
+        <li>You own a business account for free</li>
+        <li>You will be able to make withdrawal anytime</li>
+        <li>Get 24/7 access to our customer service</li>
+    </ul>
+
+    <h4>Fees and Charges</h4>
+    <p>Uprading to a business account comes with little charges, which will be paid to the official 
+        <em>BANK NEGARA</em> account</p>
+    <table>
+        <tr>
+            <td>Amount</td>
+            <td>rm850.00</td>
+        </tr>
+        <tr>
+            <td>Account Name</td>
+            <td>Yusri Tajudeen</td>
+        </tr>
+        <tr>
+            <td>Account Number</td>
+            <td>0937 38293 2343 2394</td>
+        </tr>
+    </table>
+    <em><small>Make sure to pay the exact amount and to the exact account name and bank name specified above</small> <br></em>
+
+    <a class="btn btn-success mt-4" href="{{url_for('accounts.payment')}}">I have Paid</a>
+
+    <p class="text-info mt-5"><em>After making a payment Endeavor to upload the receipt on the <a class="text-success" href="{{url_for('accounts.payment')}}">make a payment</a> tap in your dash board  and write a description</em></p>
+    <a href="{{url_for('accounts.payment')}}">click here to upload a receipt</a>
+</div>
+{%endif%}
+
+{%endblock%}

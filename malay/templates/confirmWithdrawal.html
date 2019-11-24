@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<div id="confirmWithdrawal" class="confirmWithdrawal">
+    <div class="signUpForm">
+        <h2>Confirm Withdrawal</h2>
+        <p>Bank Name: MAYBANK</p>
+        <div class="logo">
+            <img src="../static/images/maybank.png" alt="" height="100%" width="100%">
+        </div>
+        <p>Account Holder: Yusri</p>
+        <p>Total Withdrawal: 111,111</p>
+        <a onclick="showLoader()" class="btn btn-outline-info" href="{{url_for('error.refresh')}}">Confirm</a>
+        <a class="btn btn-outline-danger" href="{{url_for('accounts.account_view')}}">Cancel</a>
+    </div>
+</div>
+
+
+</div>
+<div id="loader" class="signUpForm hidden show">
+        <h5>Please wait, while we complete your request.....</h5>
+        <div class="loader" style="margin:0 35%;">
+            <div class="spinner-border" style="width: 100px; height: 100px;" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+</div>
+
+
+<script>
+    function showLoader() {
+        document.getElementById('loader').classList.add('show');
+        document.getElementById('loader').classList.remove('hidden');
+        document.getElementById('confirmWithdrawal').classList.add('hidden');
+    }
+</script>
+
+    {%endblock%}

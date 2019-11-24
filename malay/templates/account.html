@@ -1,0 +1,111 @@
+{%extends 'base.html'%}
+
+{%block body%}
+    <div class="signInTopNav">
+            <a href="{{url_for('main.index')}}"><img src="../static/images/transparentBankLogo.png" alt=""></a>
+            <a style="float: right;" class="btn btn-danger m-2" href="{{url_for('users.logout')}}">Logout</a>
+    </div>
+    <div class="accountType">
+        <div class="col-md-4" style="height: 50px;display: flex;">
+            <h5>BANK NEGARA MALAYSIA</h5>
+            <img style="padding: 5px;" src="../static/images/transparentLogo.png" height="70%" alt="">
+        </div>
+    </div>
+    {%with messages = get_flashed_messages()%}
+    {%for message in messages%}
+    {%if message%}
+    <div class="container-fluid bg-success" style="padding: 10px;">
+        <span style="color: white;">{{message}}</span>
+    </div>
+    {%endif%}
+    {%endfor%}
+    {%endwith%}
+    
+    <p class="col-md-4">Hello, {{current_user.username}}</p>
+    <small class="ml-3 text-success" onclick='showAccount()' type="button">View Account Number ********{{current_user.accountNumber[10:]}}</small>
+    <div class="dashBoard">
+        <div class="availableBalance dashBoard-item">
+            <small>Available Balance</small>
+            <h2 class="text-success">rm{{float(current_user.accountBalance)}}</h2>
+            <small>${{float(current_user.accountBalance)/4}}</small>
+            <a class="btn btn-success mt-2" style="width: 100%;" href="{{url_for('accounts.withdrawal')}}">Withdraw</a>
+        </div>
+
+        <div class="onHold dashBoard-item">
+            <small>Pending withdrawal</small>
+            <h2 class="text-warning">rm{{float(current_user.pendingBalance)}}</h2>
+            <small>${{float(current_user.pendingBalance)/4}}</small>
+            <a class="btn btn-warning mt-2" style="width: 100%;" href="{{url_for('accounts.withdrawal')}}">See Pending Transaction</a>
+        </div>
+
+        <div class="pending dashBoard-item">
+            <small>Balance on Hold</small>
+            <h2 class="text-danger">rm{{float(current_user.amountOnHold)}}</h2>
+            <small>${{float(current_user.amountOnHold)/4}}</small>
+            <a class="btn btn-danger mt-2" style="width: 100%;" href="{{url_for('accounts.withdrawal')}}">View Details</a>
+        </div>
+    </div>
+
+    <div id="account" class="accountNumber hidden">
+        <div class="signUpForm">
+        <p class="ml-3">Your BNS Account Number is  <span class="text-success">{{current_user.accountNumber}}</span></p>
+        <button onclick="removeAccount()" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+
+    <div class="jumbotron" style="height: 100px; padding: 10px;">
+        <button onclick="showAccount()" class="btn btn-primary">View Account number</button>
+        <em><p class="ml-3"><a href="{{url_for('accounts.payment')}}">Make a Payment</a></p></em>
+    </div>
+    <em><h4 class="ml-3">Recent Transactions</h4></em>
+    {% if not user_withdrawal%}
+    <em class="ml-3">No Recent Activity Yet</em>
+    {%endif%}
+    {%for transaction in withdrawal%}
+        {%if transaction%}
+            {%if transaction.user_id == current_user.id%}
+                <table id="transaction" style="font-size: smaller;">
+                    <tr>
+                        {%if transaction.status == 'Completed'%}
+                        <td>{{transaction.withdrawalAccountNumber}}</td>
+                        <td class="text-success">{{transaction.status}}</td>
+                        {%else%}
+                        <td>**{{transaction.withdrawalAccountNumber[-4:]}}</td>
+                        <td class="text-danger">{{transaction.status}}..</td>
+                        {%endif%}
+                    </tr>
+
+                </table>
+            {%endif%}
+        
+        {%endif%}
+    {%endfor%}
+    <!-----
+    <div class="accountDashBoard">
+        <h1>WELCOME SALAM</h1>
+        <small>BNM individual account **4623</small>
+        <p class="m-4"><a href="" style="color: rgb(156, 242, 245);"><i>View Your Account Details ></i></a></p>
+        <p>Account Number ***********4623</p>
+        <p>Available Balance</p>
+        <h1><small>RM</small> 500,000.00</h1>
+        <small>$20,000</small><br>
+        <a class="btn btn-outline-primary m-4" style="width: 60%;" href="{{url_for('accounts.withdrawal')}}">Withdraw Money</a>
+    </div>
+
+    <div class="jumbotron">
+        
+    </div>
+    -->
+
+    <script>
+        function showAccount() {
+            document.getElementById('account').classList.add('show');
+            document.getElementById('account').classList.remove('hidden');
+        }
+
+        function removeAccount() {
+            document.getElementById('account').classList.remove('show');
+            document.getElementById('account').classList.add('hidden');
+        }
+    </script>
+{%endblock%}
